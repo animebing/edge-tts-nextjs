@@ -47,4 +47,4 @@ uvicorn main:app
 ## Dependency
 - [Edge-tts](https://github.com/rany2/edge-tts)
 - [Nextjs](https://nextjs.org/)
-- [Fastapi]()https://fastapi.tiangolo.com/
+- [Fastapi](https://fastapi.tiangolo.com/)
