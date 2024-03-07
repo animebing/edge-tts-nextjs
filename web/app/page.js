@@ -1,5 +1,7 @@
 'use client';
 
+import { toast } from 'sonner';
+
 import Audio from '@/components/audio'
 import Button from '@/components/button'
 import Hero from '@/components/hero'
@@ -40,6 +42,7 @@ export default function Home() {
       setAudioUrl(audioUrl)
     } catch (error) {
       console.log("error in tts:", error);
+      toast.error('error in /api/generate');
     } finally {
       setLoading(false);
     }
