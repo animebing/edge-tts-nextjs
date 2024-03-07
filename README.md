@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Edge TTS Nextjs App
 
-## Getting Started
+Web application using [edge-tts](https://github.com/rany2/edge-tts) and nextjs
 
-First, run the development server:
+## Introduction
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This project consists of two parts👇
+
+1. `web`: nextjs web app
+2. `backend`: edge-tts fastapi service
+
+## Local Development
+
+### Clone project
+```shell
+git clone https://github.com/animebing/edge-tts-nextjs
+cd edge-tts-nextjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Nextjs Web App, in `web` directory
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. locate a `.env` file with content below
+```
+EDGE_TTS_URL="http://127.0.0.1:8000/api/tts"
+```
+2. install dependencies
+```shell
+npm install
+```
+3. start web server
+```shell
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Edge-tts Fastapi Service, in `backend` directory
 
-## Learn More
+1. install dependencies
+```shell
+pip install -r requirements.txt
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. start fastapi service
+```shell
+uvicorn main:app
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Dependency
+- [Edge-tts](https://github.com/rany2/edge-tts)
+- [Nextjs](https://nextjs.org/)
+- [Fastapi]()https://fastapi.tiangolo.com/
