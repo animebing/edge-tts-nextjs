@@ -1,7 +1,14 @@
-export default () => {
+export default ({
+  audioUrl,
+}) => {
   return (
     <div className="mt-4">
-      audio
+      <audio 
+        controls
+        src={audioUrl}
+        className="w-full"
+      >
+      </audio>
     </div>
   );
 }
