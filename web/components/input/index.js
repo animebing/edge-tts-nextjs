@@ -1,13 +1,7 @@
 export default ({
   text,
-  setText,
-  setAudioUrl,
+  onChange,
 }) => {
-  const changeHandler = (event) => {
-    setText(event.target.value);
-    setAudioUrl('');
-  };
-
   return (
     <div className="mt-4">
       <textarea 
@@ -15,7 +9,7 @@ export default ({
         rows="10"
         className="w-full text-lg p-2 border-2 border-solid rounded-md"
         value={text}
-        onChange={changeHandler}
+        onChange={onChange}
       >
       </textarea>
     </div>

@@ -2,16 +2,14 @@ import Select from 'react-select';
 import { voices } from '@/lib/constants';
 
 export default ({
-  voice,
-  setVoice,
+  onChange,
 }) => {
   return (
     <div className='mt-4 text-center'>
       <Select
-        placeholder="select one voice"
         isSearchable={false}
-        defaultValue={voice}
-        onChange={setVoice}
+        defaultValue={voices[0]}
+        onChange={onChange}
         options={voices}
       />
     </div>
