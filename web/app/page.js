@@ -15,8 +15,7 @@ export default function Home() {
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const [audioUrl, setAudioUrl] = useState('');
-
-  console.log(typeof voice, voice);
+  
   const selectChangeHandler = (newValue) => {
     setVoice(newValue);
     setAudioUrl('');
