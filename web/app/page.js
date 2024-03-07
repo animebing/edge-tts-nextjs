@@ -16,6 +16,17 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [audioUrl, setAudioUrl] = useState('');
 
+  console.log(typeof voice, voice);
+  const selectChangeHandler = (newValue) => {
+    setVoice(newValue);
+    setAudioUrl('');
+  };
+
+  const inputChangeHandler = (event) => {
+    setText(event.target.value);
+    setAudioUrl('');
+  };
+
   const clickHandler = async () => {
     setLoading(true);
     setAudioUrl('')
@@ -51,9 +62,9 @@ export default function Home() {
   return (
     <main className="h-screen w-full px-8 py-8 md:max-w-3xl md:mx-auto">
       <Hero />
-      <Options voice={voice} setVoice={setVoice} />
-      <Input text={text} setText={setText} setAudioUrl={setAudioUrl} />
-      <Button loading={loading} clickHandler={clickHandler} />
+      <Options onChange={selectChangeHandler} />
+      <Input text={text} onChange={inputChangeHandler} />
+      <Button loading={loading} onClick={clickHandler} />
       {audioUrl && <Audio audioUrl={audioUrl} />}
     </main>
   );
