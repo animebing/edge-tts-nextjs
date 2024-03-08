@@ -6,18 +6,25 @@ import Audio from '@/components/audio'
 import Button from '@/components/button'
 import Hero from '@/components/hero'
 import Input from '@/components/input'
+import Language from '@/components/language'
 import Options from '@/components/options'
-import { useState } from 'react';
-import { voices } from '@/lib/constants';
+import { useEffect, useState } from 'react';
+import { language2voices } from '@/lib/constants';
 
 export default function Home() {
-  const [voice, setVoice] = useState(voices[0]);
+  const [language, setLanguage] = useState('Chinese');
+  const [voice, setVoice] = useState(language2voices[language]);
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const [audioUrl, setAudioUrl] = useState('');
-  
-  const selectChangeHandler = (newValue) => {
-    setVoice(newValue);
+
+  useEffect(() => {
+    setVoice(language2voices[language][0]);
+    setAudioUrl('');
+  }, [language]);
+
+  const selectChangeHandler = (newVoice) => {
+    setVoice(newVoice);
     setAudioUrl('');
   };
 
@@ -61,7 +68,8 @@ export default function Home() {
   return (
     <main className="h-screen w-full px-8 py-8 md:max-w-3xl md:mx-auto">
       <Hero />
-      <Options onChange={selectChangeHandler} />
+      <Language language={language} setLanguage={setLanguage} />
+      <Options voice={voice} voices={language2voices[language]} onChange={selectChangeHandler} />
       <Input text={text} onChange={inputChangeHandler} />
       <Button loading={loading} onClick={clickHandler} />
       {audioUrl && <Audio audioUrl={audioUrl} />}
