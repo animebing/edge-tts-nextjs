@@ -1,14 +1,15 @@
 import Select from 'react-select';
-import { voices } from '@/lib/constants';
 
 export default ({
+  voice,
+  voices,
   onChange,
 }) => {
   return (
     <div className='mt-4 text-center'>
       <Select
         isSearchable={false}
-        defaultValue={voices[0]}
+        value={voice}
         onChange={onChange}
         options={voices}
       />
