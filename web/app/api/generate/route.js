@@ -12,11 +12,5 @@ export async function POST(request) {
     throw new Error("tts-edge failed");
   }
 
-  const audioData = await response.arrayBuffer();
-  
-  return new Response(audioData, {
-    headers: {
-      "Content-Type": "audio/mpeg",
-    }
-  });
+  return response;
 }
